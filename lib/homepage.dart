@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_pro/webview_flutter.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:provider/provider.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
 import 'internet_not_connected.dart';
 
 class Isconected extends StatefulWidget {
@@ -67,11 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Padding(
               padding: const EdgeInsets.only(top: 20),
               child: WebView(
+                debuggingEnabled: true,
+                allowsInlineMediaPlayback: true,
+                gestureNavigationEnabled: true,
                 initialUrl: "https://ucar.tj",
                 javascriptMode: JavascriptMode.unrestricted,
                 onWebViewCreated: (WebViewController webViewController) {
                   _webViewController = webViewController;
-                },
+                },               
               )),
         ));
   }
